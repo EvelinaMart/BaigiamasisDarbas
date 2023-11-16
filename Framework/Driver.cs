@@ -7,7 +7,7 @@ namespace Framework
     {
         static IWebDriver driver;
 
-        internal static void InitializeDriver()
+        public static void InitializeDriver()
         {
             driver = new ChromeDriver();
         }
@@ -22,7 +22,7 @@ namespace Framework
             driver.Url = url;
         }
 
-        internal static void QuitDriver()
+        public static void QuitDriver()
         {
             driver.Quit();
         }
