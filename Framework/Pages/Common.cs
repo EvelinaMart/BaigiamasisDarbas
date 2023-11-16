@@ -46,7 +46,7 @@ namespace Framework.Pages
             }
         }
 
-        internal static void WaitForElementToBeVisisble(string locator)
+        internal static void WaitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(5));
             wait.Until(d => d.FindElement(By.XPath(locator)));
