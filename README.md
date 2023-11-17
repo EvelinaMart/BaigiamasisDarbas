@@ -26,16 +26,16 @@
 2. Scenario. Home Page
    1. Test Case. Adding a gift voucher to the cart
    
-      (Preconditions: Website is opened. User is logged in to the account)
+      (Preconditions: Website is opened)
       1. Click on Home page icon "Laisvalaikio dovanos"
       2. Click "30 eur vertės"
       3. Click "Įdėti į krepšelį"
       4. *Assert* that "PREKIŲ KREPŠELIS (1)" is visible
 
-3. Scenario. Catalogue
+3. Scenario. Cart
    1. Test Case. Adding multiple (3) items to the cart by the category of the gift
    
-      (Preconditions: Website is opened. User is logged in to the account)
+      (Preconditions: Website is opened)
       1. Mouse over "Dovanos"
       2. Click "Aktyvus laisvalaikis"
       3. From the Dropdown menu choose cities "Kaunas" and "Vilnius"
@@ -52,10 +52,9 @@
       13. Click "Į krepšelį"
       14. *Assert* that "PREKIŲ KREPŠELIS (3)" is visible
 
-4. Scenario. Cart
-   1. Test Case. Remove multiple (3) items from the cart
+   2. Test Case. Remove multiple (3) items from the cart
    
-      (Preconditions: Website is opened. User is logged in to the account. Multiple (3) items are added in the cart)
+      (Preconditions: Website is opened. Multiple (3) items are added in the cart)
       1. Click on the Cart icon
       2. Click the first "x" button
       3. Click the second "x" button
