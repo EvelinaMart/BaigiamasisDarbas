@@ -9,7 +9,7 @@ namespace Framework.Pages
 {
     public class Common
     {
-        public static IWebElement GetElement(string locator)
+        internal static IWebElement GetElement(string locator)
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
@@ -48,8 +48,14 @@ namespace Framework.Pages
 
         internal static void WaitForElementToBeVisible(string locator)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(5));
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.XPath(locator)));
+        }
+
+        internal static void ExecuteJavascript(string script, string locator)
+        {
+            IWebElement element = GetElement(locator);
+            ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
         }
     }
 }
