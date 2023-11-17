@@ -51,7 +51,7 @@ namespace Framework.Pages
 
         public static string GetErrorMessageBody()
         {
-            string locator = "/html/body/div[8]/div/ul/li";
+            string locator = "//*[@id='floating-error-bg2']//li";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }

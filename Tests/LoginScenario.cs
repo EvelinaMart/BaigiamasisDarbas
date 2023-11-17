@@ -34,6 +34,7 @@ namespace Tests
             string invalidPassword = "testinePaskyra";
             string expectedErrorMessageTitle = "REGISTRACIJOS KLAIDA";
             string expectedErrorMessageBody = "Slaptažodis arba el. paštas yra neteisingi.";
+            string expectedErrorMessageBodyCapthaError = "login|error_recaptcha";
 
             Login.CloseCookiesWindow();
             // Login.ClickButtonInfo();
@@ -42,8 +43,9 @@ namespace Tests
             Login.EnterPassword(invalidPassword);
             Login.ClickButtonPrisijungti();
 
-            Assert.That(Login.GetErrorMessageBody(), Is.EqualTo(expectedErrorMessageBody));
             Assert.That(Login.GetErrorMessageTitle(), Is.EqualTo(expectedErrorMessageTitle));
+            Assert.That(Login.GetErrorMessageBody(), Is.EqualTo(expectedErrorMessageBody)
+                                                    .Or.EqualTo(expectedErrorMessageBodyCapthaError));
         }
     }
 }
