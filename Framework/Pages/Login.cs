@@ -35,16 +35,11 @@ namespace Framework.Pages
             Common.ClickElement(locator);
         }
 
-       /*public static IWebElement GetProfileIcon()
-        *{
-        *    string locator = "//*[@class='icon icon-user-2']";
-        *    return Common.GetElement(locator);
-        *}
-        */
-
         public static bool ProfileIconExists()
         {
-            string locator = "/html/body/header/div/nav/div/div[2]/div/ul[2]/li[4]/a";
+            //string locator = "/html/body/header/div/nav/div/div[2]/div/ul[2]/li[4]/a";
+            // string locator = "//*[@class='icon icon-user-2']";
+            string locator = "//*[@class='main-menu-button']";
             Common.WaitForElementToBeVisible(locator);
             return Common.ElementExists(locator);
         }

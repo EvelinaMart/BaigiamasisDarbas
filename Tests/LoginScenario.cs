@@ -25,7 +25,7 @@ namespace Tests
             Login.EnterPassword(validPassword);
             Login.ClickButtonPrisijungti();
 
-            Assert.That(Login.ProfileIconExists()); // Profile icon is visible
+            Assert.That(Login.ProfileIconExists());
         }
         [Test]
         public void LoginWithInvalidData()
