@@ -1,4 +1,5 @@
 ﻿using Framework;
+using Framework.Pages;
 using NUnit.Framework;
 
 namespace Tests
@@ -9,6 +10,8 @@ namespace Tests
         public void SetUp()
         {
             Driver.InitializeDriver();
+            Login.Open();
+            Login.CloseCookiesWindow();
         }
 
         [TearDown]

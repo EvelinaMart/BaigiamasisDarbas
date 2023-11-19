@@ -8,64 +8,56 @@ namespace Framework.Pages
     {
         public static void Open()
         {
-            Driver.OpenPage("https://www.laisvalaikiodovanos.lt/vartotojas/prisijungti/");
+            Driver.OpenPage("https://ornamentai.lt/");
         }
-        
-        public static void EnterEmailAddress(string email)
+
+        public static void CloseCookiesWindow()
         {
-            string locator = "//*[@id='login-form-email']";
+            string locator = "//*[@id='cn-accept-cookie']";
+            Common.ClickElement(locator);
+        }
+
+            public static void ClickUserIcon()
+        {
+            string locator = "//*[@id='masthead']/div[1]/div[3]/ul/li[1]";
+            Common.ClickElement(locator);
+        }
+
+            public static void EnterEmailAddress(string email)
+        {
+            string locator = "//*[@id='username']";
+            Common.WaitForElementToBeVisible(locator);
             Common.SendKeysToElement(locator,email);
         }
 
         public static void EnterPassword(string password)
         {
-            string locator = "//*[@id='login-form-pass']";
+            string locator = "//*[@id='password']";
             Common.SendKeysToElement(locator, password);
-        }
-
-        public static void ClickMenuButtonPrisijungti()
-        {
-            string locator = "(//*[@class='login-colorbox'])[1]";
-            Common.ClickElement(locator);
         }
 
         public static void ClickButtonPrisijungti()
         {
-            string locator = "//*[@id='login-form']/section/div/div/div[4]/input";
+            string locator = "//*[@id='customer_login']/div[1]/form/p[3]/button";
             Common.ClickElement(locator);
         }
 
-        public static bool ProfileIconExists()
+        public static string usernameVisibleAfterLogin()
         {
-            //string locator = "/html/body/header/div/nav/div/div[2]/div/ul[2]/li[4]/a";
-            // string locator = "//*[@class='icon icon-user-2']";
-            string locator = "//*[@class='main-menu-button']";
-            Common.WaitForElementToBeVisible(locator);
-            return Common.ElementExists(locator);
-        }
-
-        public static string GetErrorMessageBody()
-        {
-            string locator = "//*[@id='floating-error-bg2']//li";
+            string locator = "//*[@id='main']/div[2]/div/div/div[1]/div/span[2]";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
 
-        public static void ClickButtonInfo()
-        {
-            string locator = "//*[@class='list-dropdown js-open-hover']";
-            Common.ClickElement(locator);
-        }
+        //  public st   id ClickButtonInfo()
+        // {
+        //    string locator = "//*[@class='list-dropdown js-open-hover']";
+        //    Common.ClickElement(locator);
+        //}
 
-        public static void CloseCookiesWindow()
+        public static string GetErrorMessage()
         {
-            string locator = "//*[@class='icon-remove-1']";
-            Common.ClickElement(locator);
-        }
-
-        public static string GetErrorMessageTitle()
-        {
-            string locator = "//*[@id='floating-error-bg2']/div/p";
+            string locator = "//*[@id='wrapper']/ul/li/div";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }

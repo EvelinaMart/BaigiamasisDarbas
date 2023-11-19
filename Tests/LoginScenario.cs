@@ -6,46 +6,34 @@ namespace Tests
 {
     internal class LoginScenario : BaseTest
     {
-        [SetUp]
-        public void Open()
-        {
-            Login.Open();
-        }
         [Test]
 
         public void LoginWithValidData()
         {
             string email = "email37589@gmail.com";
-            string validPassword = "testinePaskyra3";
+            string validPassword = "testinePaskyra7";
+            string expectedUsernameVisibleAfterLogin = "email37589 #8346";
 
-            Login.CloseCookiesWindow();
-            // Login.ClickButtonInfo();
-            // Login.ClickMenuButtonPrisijungti();
+            Login.ClickUserIcon();
             Login.EnterEmailAddress(email);
             Login.EnterPassword(validPassword);
             Login.ClickButtonPrisijungti();
 
-            Assert.That(Login.ProfileIconExists());
+            Assert.That(Login.usernameVisibleAfterLogin(), Is.EqualTo(expectedUsernameVisibleAfterLogin));
         }
         [Test]
         public void LoginWithInvalidData()
         {
             string email = "email37589@gmail.com";
             string invalidPassword = "testinePaskyra";
-            string expectedErrorMessageTitle = "REGISTRACIJOS KLAIDA";
-            string expectedErrorMessageBody = "Slaptažodis arba el. paštas yra neteisingi.";
-            string expectedErrorMessageBodyCapthaError = "login|error_recaptcha";
+            string expectedErrorMessage = "Klaida: Jūsų įvestas slaptažodis el. pašto adresui email37589@gmail.com yra neteisingas. Pamiršote slaptažodį?";
 
-            Login.CloseCookiesWindow();
-            // Login.ClickButtonInfo();
-            // Login.ClickMenuButtonPrisijungti();
+            Login.ClickUserIcon();
             Login.EnterEmailAddress(email);
             Login.EnterPassword(invalidPassword);
             Login.ClickButtonPrisijungti();
 
-            Assert.That(Login.GetErrorMessageTitle(), Is.EqualTo(expectedErrorMessageTitle));
-            Assert.That(Login.GetErrorMessageBody(), Is.EqualTo(expectedErrorMessageBody)
-                                                    .Or.EqualTo(expectedErrorMessageBodyCapthaError));
+            Assert.That(Login.GetErrorMessage(), Is.EqualTo(expectedErrorMessage));
         }
     }
 }

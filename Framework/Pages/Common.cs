@@ -36,6 +36,7 @@ namespace Framework.Pages
                 IWebElement profileIcon = GetElement(locator);
                 return true;
             }
+
             catch (NoSuchElementException)
             {
                 return false;
