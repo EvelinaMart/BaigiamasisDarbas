@@ -89,9 +89,8 @@ namespace Framework.Pages
         public static void ChooseDropdownMenuItem50Eur()
         {
             string locator = "//*[@id='gift-card-amount']";
-            string locator50EUR = "//*[@id='gift-card-amount']/option[6]";
-            Common.ClickElement(locator);
-            Common.ClickElement(locator50EUR);
+            string option = "50.00€";
+            Common.SelectFromDropdownMenu(locator, option);
         }
 
         public static void ClickCartIcon()

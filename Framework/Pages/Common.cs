@@ -55,5 +55,11 @@ namespace Framework.Pages
             IWebElement element = GetElement(locator);
             ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
         }
+
+        internal static void SelectFromDropdownMenu(string locator, string option)
+        {
+            SelectElement select = new SelectElement(locator);
+            select.SelectByText(option);
+        }
     }
 }
