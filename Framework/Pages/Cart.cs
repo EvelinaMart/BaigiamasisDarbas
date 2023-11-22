@@ -107,16 +107,7 @@ namespace Framework.Pages
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "70.00€";
-            Common.WaitForElementToBeVisible(locator);
-            try
-            {
-                Common.SelectFromDropdownMenu(locator, option);
-            }
-
-            catch (OpenQA.Selenium.StaleElementReferenceException ex)
-            {
-                Common.SelectFromDropdownMenu(locator, option);
-            }
+            Common.SelectFromDropdownMenu(locator, option);
         }
 
         public static void ClickCartIcon()
