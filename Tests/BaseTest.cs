@@ -1,6 +1,7 @@
 ﻿using Framework;
 using Framework.Pages;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace Tests
 {
@@ -14,10 +15,17 @@ namespace Tests
             Login.CloseCookiesWindow();
         }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    Driver.QuitDriver();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                string methodName = TestContext.CurrentContext.Test.MethodName;
+                string filePath = Driver.TakeScreenshot(methodName);
+                TestContext.AddTestAttachment(filePath);
+            }
+
+            Driver.QuitDriver();
+        }
     }
 }
