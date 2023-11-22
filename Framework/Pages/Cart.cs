@@ -117,7 +117,8 @@ namespace Framework.Pages
 
         public static void ClickFirstButtonXDelete()
         {
-            string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
+            string locator = "//*[@class='product-remove']//*[@data-product_id='84648']";
+            //string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
             Common.ClickElement(locator);
         }
 
