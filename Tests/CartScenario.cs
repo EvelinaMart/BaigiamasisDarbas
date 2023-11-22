@@ -46,8 +46,9 @@ namespace Tests
             Cart.ClickMenuItemDovanuKuponai();
             Cart.ChooseDropdownMenuItem50Eur();
             Cart.ClickButtonIKrepseliGiftVoucher();
+            Cart.ClickMenuItemDovanuKuponai();
             Cart.ChooseDropdownMenuItem70Eur();
-            Cart.ClickButtonIKrepseli();
+            Cart.ClickButtonIKrepseliGiftVoucher();
             Cart.ClickCartIcon();
             Cart.ClickFirstButtonXDelete();
             Cart.ClickLastButtonXDelete();

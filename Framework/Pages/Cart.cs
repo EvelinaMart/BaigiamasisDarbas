@@ -35,10 +35,7 @@ namespace Framework.Pages
 
         public static void ClickCatalogueItemAliejinePastele12Spalvu()
         {
-           // string locator = "(//*[@id='main']//*[@class='title-wrapper'])[1]";
             string locator = "(//*[@class='woocommerce-LoopProduct-link woocommerce-loop-product__link'])[1]";
-           // string script = "arguments[0].scrollIntoView(true);";
-            //Common.ExecuteJavascript(script, locator);
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
@@ -107,6 +104,7 @@ namespace Framework.Pages
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "70.00€";
+            Common.WaitForElementToBeVisible(locator);
             Common.SelectFromDropdownMenu(locator, option);
         }
 
