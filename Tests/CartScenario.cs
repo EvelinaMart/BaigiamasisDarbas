@@ -9,7 +9,7 @@ namespace Tests
 
         public void AddingItemFromCatalogueToCart()
         {
-          //  string expectedCartMessageItemsAdded = ($"2 × \"{Cart.ItemInCartTitle}\" - įdėti į krepšelį");
+            string expectedCartMessageItemsAdded = "“Skulptūrinis plastilinas (minkštas) 1kg, pilkos spalvos” - įdėtas į krepšelį";
 
             Cart.ClickMenuItemElParduotuve();
             Cart.ClickMenuItemDaile();
@@ -20,7 +20,7 @@ namespace Tests
             Cart.ClickButtonIKrepseli();
 
             Assert.That(Cart.CartIconWithLabel2Exists());
-          //  Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
+            Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
         }
 
         [Test]
