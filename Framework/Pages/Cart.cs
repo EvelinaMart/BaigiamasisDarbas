@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 
 namespace Framework.Pages
 {
@@ -122,9 +123,10 @@ namespace Framework.Pages
 
         public static void ClickLastButtonXDelete()
         {
-            string locator = "//*[@id=\"main\"]/div[2]/div/div[2]/div[1]/form/div/table/tbody/tr[1]/td[1]/a";
-            //string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
-            Common.ClickElement(locator);
+            string locatorButton = "//*[@class='product-remove']//*[@data-product_id='72171']";
+            string locator = "//*[@class='woocommerce-cart-form']";
+            Common.WaitForElementAttributeToNotContainValue(locator, "class", "processing");
+            Common.ClickElement(locatorButton);
         }
 
         public static string GetCartMessageEmptyCart()

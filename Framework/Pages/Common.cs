@@ -68,5 +68,11 @@ namespace Framework.Pages
             SelectElement select = new SelectElement(dropdown);
             select.SelectByText(option);
         }
+
+        internal static void WaitForElementToBeNotVisible(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => !(d.FindElement(By.XPath(locator)).Displayed));
+        }
     }
 }
