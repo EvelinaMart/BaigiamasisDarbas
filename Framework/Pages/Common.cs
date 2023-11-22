@@ -50,7 +50,7 @@ namespace Framework.Pages
             wait.Until(d => d.FindElement(By.XPath(locator)));
         }
 
-            internal static void ExecuteJavascript(string script, string locator)
+        internal static void ExecuteJavascript(string script, string locator)
         {
             IWebElement element = GetElement(locator);
             ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
