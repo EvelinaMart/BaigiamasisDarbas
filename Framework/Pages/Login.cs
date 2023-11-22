@@ -10,6 +10,7 @@
         public static void CloseCookiesWindow()
         {
             string locator = "//*[@id='cn-accept-cookie']";
+            Common.WaitForElementAttributeToNotContainValue(locator, "class", "cn-animated");
             Common.ClickElement(locator);
         }
 
