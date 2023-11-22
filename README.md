@@ -34,13 +34,13 @@
 
       1. Click "EL. PARDUOTUVĖ"
       2. Click "DAILĖ"
-      3. Expand menu "MODELIAVIMAS IR MAKETAVIMAS"
-      4. Click "SKULPTŪRA"
-      5. Click on the first item in the Catalogue
+      3. Expand menu "PASTELĖ"
+      4. Click "ALIEJINĖ PASTELĖ"
+      5. Click on the item "Aliejinė pastelė ARTix Arts 12 spalvų"
       6. Increase quantity by one
       7. Click "Į KREPŠELĮ"
       
-      *Assert that Cart icon with label "2" is displayed and that message "2 × “Skulptūrinis plastilinas (minkštas) 1kg, pilkos spalvos” - įdėti į krepšelį" is displayed*
+      *Assert that Cart icon with label "2" is displayed and that message "2 × “Aliejinė pastelė ARTix Arts 12 spalvų” - įdėti į krepšelį" is displayed*
 
    2. Test Case. Adding a gift voucher to the cart
    

@@ -16,26 +16,29 @@ namespace Framework.Pages
             Common.ClickElement(locator);
         }
 
-        public static void ClickAngleDownIconModeliavimasIrMaketavimas()
+        public static void ClickAngleDownIconPastele()
         {
-            string locatorScrollIntoView = "//*[@class='cat-item cat-item-1904 cat-parent has-child']";
-            string locator = "//*[@class='cat-item cat-item-1904 cat-parent has-child']//*[@class='icon-angle-down']";
+            string locatorScrollIntoView = "//*[@class='cat-item cat-item-1906 cat-parent has-child']";
+            string locator = "//*[@class='cat-item cat-item-1791 cat-parent has-child']//*[@class='icon-angle-down']";
             string script = "arguments[0].scrollIntoView(true);";
             Common.ExecuteJavascript(script, locatorScrollIntoView);
             Common.ClickElement(locator);
         }
 
-        public static void ClickMenuItemSkulptura()
+        public static void ClickMenuItemAliejinePastele()
         {
-            string locator = "//*[@class='cat-item cat-item-1853']";
+            string locator = "//*[@id='woocommerce_product_categories-13']/ul/li[2]/ul/li[8]/ul/li[1]/a";
             string script = "arguments[0].scrollIntoView(true);";
             Common.ExecuteJavascript(script, locator);
             Common.ClickElement(locator);
         }
 
-        public static void ClickFirstOptionInCatalogue()
+        public static void ClickCatalogueItemAliejinePastele12Spalvu()
         {
-            string locator = "(//*[@id='main']//*[@class='title-wrapper'])[1]";
+           // string locator = "(//*[@id='main']//*[@class='title-wrapper'])[1]";
+            string locator = "(//*[@class='woocommerce-LoopProduct-link woocommerce-loop-product__link'])[1]";
+            string script = "arguments[0].scrollIntoView(true);";
+            Common.ExecuteJavascript(script, locator);
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
@@ -85,7 +88,10 @@ namespace Framework.Pages
 
         public static void ChooseDropdownMenuItem50Eur()
         {
-          //  throw new NotImplementedException();
+            string locator = "//*[@id='gift-card-amount']";
+            string locator50EUR = "//*[@id='gift-card-amount']/option[6]";
+            Common.ClickElement(locator);
+            Common.ClickElement(locator50EUR);
         }
 
         public static void ClickCartIcon()
@@ -94,28 +100,15 @@ namespace Framework.Pages
             Common.ClickElement(locator);
         }
 
-        public static void ClickFirstXButton()
+        public static void ClickFirstButtonXDelete()
         {
-            string locator = "";
-            Common.ClickElement(locator);
-        }
-
-        public static void ClickLastXButton()
-        {
-            string locator = "";
+            string locator = "//*[@class='remove']";
             Common.ClickElement(locator);
         }
 
         public static string GetCartMessageEmptyCart()
         {
             string locator = "";
-            Common.WaitForElementToBeVisible(locator);
-            return Common.GetElementText(locator);
-        }
-
-        public static string ItemInCartTitle()
-        {
-            string locator = "(//*[@id='main']//*[@class='title-wrapper'])[1]";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }

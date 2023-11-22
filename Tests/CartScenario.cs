@@ -9,13 +9,13 @@ namespace Tests
 
         public void AddingItemFromCatalogueToCart()
         {
-            string expectedCartMessageItemsAdded = "“Skulptūrinis plastilinas (minkštas) 1kg, pilkos spalvos” - įdėtas į krepšelį";
+            string expectedCartMessageItemsAdded = "“Aliejinė pastelė ARTix Arts 12 spalvų” - įdėtas į krepšelį";
 
             Cart.ClickMenuItemElParduotuve();
             Cart.ClickMenuItemDaile();
-            Cart.ClickAngleDownIconModeliavimasIrMaketavimas();
-            Cart.ClickMenuItemSkulptura();
-            Cart.ClickFirstOptionInCatalogue();
+            Cart.ClickAngleDownIconPastele();
+            Cart.ClickMenuItemAliejinePastele();
+            Cart.ClickCatalogueItemAliejinePastele12Spalvu();
             Cart.IncreaseQuantityBy1();
             Cart.ClickButtonIKrepseli();
 
@@ -44,8 +44,8 @@ namespace Tests
             string expectedCartMessage = "Krepšelis dar tuščias";
 
             Cart.ClickCartIcon();
-            Cart.ClickFirstXButton();
-            Cart.ClickLastXButton();
+            Cart.ClickFirstButtonXDelete();
+            Cart.ClickFirstButtonXDelete();
 
             Assert.That(Cart.GetCartMessageEmptyCart(), Is.EqualTo(expectedCartMessage));
         }
