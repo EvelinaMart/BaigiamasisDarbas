@@ -3,9 +3,9 @@ using Framework.Pages;
 
 namespace Tests
 {
-    internal class CartScenario : BaseTestCart
+    internal class CartScenario : BaseTest
     {
-        [Test, Order(1)]
+        [Test]
 
         public void AddingItemFromCatalogueToCart()
         {
@@ -23,7 +23,7 @@ namespace Tests
             Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
         }
 
-        [Test, Order(2)]
+        [Test]
 
         public void AddingGiftVoucherToCart()
         {
@@ -33,21 +33,26 @@ namespace Tests
             Cart.ChooseDropdownMenuItem50Eur();
             Cart.ClickButtonIKrepseliGiftVoucher();
 
-            //Assert.That(Cart.CartIconWithLabel3Exists());
+            Assert.That(Cart.CartIconWithLabel1Exists());
             Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageVoucherAdded));
         }
 
-        [Test, Order(3)]
+        [Test]
 
         public void RemovingItemsFromCart()
         {
-            string expectedCartMessage = "Krepšelis dar tuščias";
+            string expectedcartmessage = "Krepšelis dar tuščias";
 
+            Cart.ClickMenuItemDovanuKuponai();
+            Cart.ChooseDropdownMenuItem50Eur();
+            Cart.ClickButtonIKrepseliGiftVoucher();
+            Cart.ChooseDropdownMenuItem70Eur();
+            Cart.ClickButtonIKrepseli();
             Cart.ClickCartIcon();
             Cart.ClickFirstButtonXDelete();
-            Cart.ClickFirstButtonXDelete();
+            Cart.ClickLastButtonXDelete();
 
-            Assert.That(Cart.GetCartMessageEmptyCart(), Is.EqualTo(expectedCartMessage));
+            Assert.That(Cart.GetCartMessageEmptyCart(), Is.EqualTo(expectedcartmessage));
         }
     }
 }

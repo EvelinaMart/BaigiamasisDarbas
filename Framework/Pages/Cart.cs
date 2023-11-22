@@ -60,6 +60,7 @@ namespace Framework.Pages
         public static void ClickButtonIKrepseliGiftVoucher()
         {
             string locator = "//*[@class='single_add_to_cart_button button alt wp-element-button']";
+            Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
 
@@ -71,10 +72,10 @@ namespace Framework.Pages
             return Common.ElementExists(locator);
         }
 
-        public static bool CartIconWithLabel3Exists()
+        public static bool CartIconWithLabel1Exists()
         {
 
-            string locator = "(//*[@id='masthead']//*[@data-icon-label='3'])[1]";
+            string locator = "(//*[@id='masthead']//*[@data-icon-label='1'])[1]";
             Common.WaitForElementToBeVisible(locator);
             return Common.ElementExists(locator);
         }
@@ -108,6 +109,22 @@ namespace Framework.Pages
             }
         }
 
+        public static void ChooseDropdownMenuItem70Eur()
+        {
+            string locator = "(//*[@id='gift-card-amount'])[2]";
+            string option = "70.00€";
+            Common.WaitForElementToBeVisible(locator);
+            try
+            {
+                Common.SelectFromDropdownMenu(locator, option);
+            }
+
+            catch (OpenQA.Selenium.StaleElementReferenceException ex)
+            {
+                Common.SelectFromDropdownMenu(locator, option);
+            }
+        }
+
         public static void ClickCartIcon()
         {
             string locator = "//*[@id='masthead']//*[@class='icon-shopping-cart']";
@@ -116,13 +133,20 @@ namespace Framework.Pages
 
         public static void ClickFirstButtonXDelete()
         {
-            string locator = "//*[@class='remove']";
+            string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
+            Common.ClickElement(locator);
+        }
+
+        public static void ClickLastButtonXDelete()
+        {
+            string locator = "//*[@id=\"main\"]/div[2]/div/div[2]/div[1]/form/div/table/tbody/tr[1]/td[1]/a";
+            //string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
             Common.ClickElement(locator);
         }
 
         public static string GetCartMessageEmptyCart()
         {
-            string locator = "";
+            string locator = "//*[@class='cart-empty woocommerce-info']";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
