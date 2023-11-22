@@ -64,7 +64,8 @@ namespace Framework.Pages
 
         internal static void SelectFromDropdownMenu(string locator, string option)
         {
-            SelectElement select = new SelectElement(locator);
+            IWebElement dropdown = GetElement(locator);
+            SelectElement select = new SelectElement(dropdown);
             select.SelectByText(option);
         }
     }
