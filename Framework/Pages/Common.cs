@@ -61,5 +61,11 @@ namespace Framework.Pages
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
         }
+
+        internal static void SelectFromDropdownMenu(string locator, string option)
+        {
+            SelectElement select = new SelectElement(locator);
+            select.SelectByText(option);
+        }
     }
 }
