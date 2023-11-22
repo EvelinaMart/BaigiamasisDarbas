@@ -90,22 +90,16 @@ namespace Framework.Pages
         {
             string locator = "//*[@id='menu-item-74300']/a";
             Common.ClickElement(locator);
+
+            string locatorBody = "/html/body[@style='']";
+            Common.WaitForElementToBeVisible(locatorBody);
         }
 
         public static void ChooseDropdownMenuItem50Eur()
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "50.00€";
-            Common.WaitForElementToBeVisible(locator);
-            try
-            {
-                Common.SelectFromDropdownMenu(locator, option);
-            }
-
-            catch (OpenQA.Selenium.StaleElementReferenceException ex)
-            {
-                Common.SelectFromDropdownMenu(locator, option);
-            }
+            Common.SelectFromDropdownMenu(locator, option);
         }
 
         public static void ClickCartIcon()
