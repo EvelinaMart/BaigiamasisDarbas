@@ -13,6 +13,7 @@ namespace Framework.Pages
 
         internal static void ClickElement(string locator)
         {
+            WaitForElementToBeVisible(locator);
             GetElement(locator).Click();
         }
 
@@ -23,6 +24,7 @@ namespace Framework.Pages
 
         internal static string GetElementText(string locator)
         {
+            WaitForElementToBeVisible(locator);
             return GetElement(locator).Text;
         }
 
