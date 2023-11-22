@@ -55,5 +55,11 @@ namespace Framework.Pages
             IWebElement element = GetElement(locator);
             ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
         }
+
+        internal static void WaitForElementAttributeToNotContainValue(string locator, string attributeName, string attributeValue)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
+        }
     }
 }
