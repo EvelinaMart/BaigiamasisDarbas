@@ -1,8 +1,4 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Internal;
-using System;
-
-namespace Framework.Pages
+﻿namespace Framework.Pages
 {
     public class Login
     {
@@ -19,7 +15,7 @@ namespace Framework.Pages
 
             public static void ClickUserIcon()
         {
-            string locator = "//*[@id='masthead']/div[1]/div[3]/ul/li[1]";
+            string locator = "//*[@id='masthead']//*[@class='icon-user']";
             Common.ClickElement(locator);
         }
 
@@ -38,26 +34,20 @@ namespace Framework.Pages
 
         public static void ClickButtonPrisijungti()
         {
-            string locator = "//*[@id='customer_login']/div[1]/form/p[3]/button";
+            string locator = "//*[@id='customer_login']//*[@value='Prisijungti']";
             Common.ClickElement(locator);
         }
 
-        public static string usernameVisibleAfterLogin()
+        public static string UsernameVisibleAfterLogin()
         {
-            string locator = "//*[@id='main']/div[2]/div/div/div[1]/div/span[2]";
+            string locator = "//*[@id='main']//*[@class='user-name inline-block']";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
 
-        //  public st   id ClickButtonInfo()
-        // {
-        //    string locator = "//*[@class='list-dropdown js-open-hover']";
-        //    Common.ClickElement(locator);
-        //}
-
-        public static string GetErrorMessage()
+        public static string GetLoginErrorMessage()
         {
-            string locator = "//*[@id='wrapper']/ul/li/div";
+            string locator = "//*[@id='wrapper']//*[@class='message-container container alert-color medium-text-center']";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
