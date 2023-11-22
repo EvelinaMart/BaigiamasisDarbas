@@ -57,6 +57,12 @@ namespace Framework.Pages
             Common.ClickElement(locator);
         }
 
+        public static void ClickButtonIKrepseliGiftVoucher()
+        {
+            string locator = "//*[@class='single_add_to_cart_button button alt wp-element-button']";
+            Common.ClickElement(locator);
+        }
+
         public static bool CartIconWithLabel2Exists()
         {
 
@@ -88,9 +94,18 @@ namespace Framework.Pages
 
         public static void ChooseDropdownMenuItem50Eur()
         {
-            string locator = "//*[@id='gift-card-amount']";
+            string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "50.00€";
-            Common.SelectFromDropdownMenu(locator, option);
+            Common.WaitForElementToBeVisible(locator);
+            try
+            {
+                Common.SelectFromDropdownMenu(locator, option);
+            }
+
+            catch (OpenQA.Selenium.StaleElementReferenceException ex)
+            {
+                Common.SelectFromDropdownMenu(locator, option);
+            }
         }
 
         public static void ClickCartIcon()

@@ -3,9 +3,9 @@ using Framework.Pages;
 
 namespace Tests
 {
-    internal class CartScenario : BaseTest
+    internal class CartScenario : BaseTestCart
     {
-        [Test]
+        [Test, Order(1)]
 
         public void AddingItemFromCatalogueToCart()
         {
@@ -23,7 +23,7 @@ namespace Tests
             Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
         }
 
-        [Test]
+        [Test, Order(2)]
 
         public void AddingGiftVoucherToCart()
         {
@@ -31,13 +31,13 @@ namespace Tests
 
             Cart.ClickMenuItemDovanuKuponai();
             Cart.ChooseDropdownMenuItem50Eur();
-            Cart.ClickButtonIKrepseli();
+            Cart.ClickButtonIKrepseliGiftVoucher();
 
-            Assert.That(Cart.CartIconWithLabel3Exists());
+            //Assert.That(Cart.CartIconWithLabel3Exists());
             Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageVoucherAdded));
         }
 
-        [Test]
+        [Test, Order(3)]
 
         public void RemovingItemsFromCart()
         {

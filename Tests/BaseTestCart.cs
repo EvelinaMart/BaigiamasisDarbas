@@ -4,9 +4,9 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    internal class BaseTest
+    internal class BaseTestCart
     {
-        [SetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
             Driver.InitializeDriver();
@@ -14,10 +14,10 @@ namespace Tests
             Login.CloseCookiesWindow();
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            Driver.QuitDriver();
-        }
+     // [OneTimeTearDown]
+     // public void TearDown()
+     // {
+     //    Driver.QuitDriver();
+     // }
     }
 }

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTestCart.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="CartScenario.cs" />
     <Compile Include="LoginScenario.cs" />
