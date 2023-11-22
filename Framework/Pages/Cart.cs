@@ -37,8 +37,8 @@ namespace Framework.Pages
         {
            // string locator = "(//*[@id='main']//*[@class='title-wrapper'])[1]";
             string locator = "(//*[@class='woocommerce-LoopProduct-link woocommerce-loop-product__link'])[1]";
-            string script = "arguments[0].scrollIntoView(true);";
-            Common.ExecuteJavascript(script, locator);
+           // string script = "arguments[0].scrollIntoView(true);";
+            //Common.ExecuteJavascript(script, locator);
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
