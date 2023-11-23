@@ -30,7 +30,6 @@
 
         public static void ClickButtonArrowToTheRight()
         {
-            //string locatorScrollIntoView = "//*[@id='nav-below']//*[@class='icon-angle-right']";
             string locator = "//*[@id='nav-below']//*[@class='icon-angle-right']";
             string script = "arguments[0].scrollIntoView(true);";
             Common.ExecuteJavascript(script, locator);
@@ -40,7 +39,6 @@
         public static string GetContactPhoneNumber()
         {
             string locator = "//*[@id=\"post-83331\"]/div/div/p[3]";
-            //string locator = "//*[@id='post-83331']/div/div/p[3]/text()[1]";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
