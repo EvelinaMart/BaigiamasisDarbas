@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Specialized;
-
-namespace Framework.Pages
+﻿namespace Framework.Pages
 {
     public class Cart
     {
@@ -70,14 +67,6 @@ namespace Framework.Pages
             return Common.ElementExists(locator);
         }
 
-        public static bool CartIconWithLabel1Exists()
-        {
-
-            string locator = "(//*[@id='masthead']//*[@data-icon-label='1'])[1]";
-            Common.WaitForElementToBeVisible(locator);
-            return Common.ElementExists(locator);
-        }
-
         public static string GetCartMessageItemsAdded()
         {
             string locator = "//*[@id='wrapper']/div/div";
@@ -98,6 +87,7 @@ namespace Framework.Pages
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "50.00€";
+            Common.WaitForElementToBeVisible(locator);
             Common.SelectFromDropdownMenu(locator, option);
         }
 
@@ -105,6 +95,7 @@ namespace Framework.Pages
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "70.00€";
+            System.Threading.Thread.Sleep(5000);
             Common.WaitForElementToBeVisible(locator);
             Common.SelectFromDropdownMenu(locator, option);
         }
@@ -117,8 +108,7 @@ namespace Framework.Pages
 
         public static void ClickFirstButtonXDelete()
         {
-            string locator = "//*[@class='product-remove']//*[@data-product_id='84648']";
-            //string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
+            string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
             Common.ClickElement(locator);
         }
 

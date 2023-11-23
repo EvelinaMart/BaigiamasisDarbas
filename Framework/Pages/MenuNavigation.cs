@@ -28,7 +28,7 @@
             Common.ClickElement(locator);
         }
 
-        public static void ClickButtonArrowTotheRight()
+        public static void ClickButtonArrowToTheRight()
         {
             //string locatorScrollIntoView = "//*[@id='nav-below']//*[@class='icon-angle-right']";
             string locator = "//*[@id='nav-below']//*[@class='icon-angle-right']";

@@ -52,10 +52,10 @@ namespace Framework.Pages
             wait.Until(d => d.FindElement(By.XPath(locator)));
         }
 
-        internal static void ExecuteJavascript(string script, string locator)
+        internal static void WaitForElementToBeNotVisible(string locator)
         {
-            IWebElement element = GetElement(locator);
-            ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(d => !(d.FindElement(By.XPath(locator)).Displayed));
         }
 
         internal static void WaitForElementAttributeToNotContainValue(string locator, string attributeName, string attributeValue)
@@ -64,17 +64,17 @@ namespace Framework.Pages
             wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
         }
 
+        internal static void ExecuteJavascript(string script, string locator)
+        {
+            IWebElement element = GetElement(locator);
+            ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
+        }
+
         internal static void SelectFromDropdownMenu(string locator, string option)
         {
             IWebElement dropdown = GetElement(locator);
             SelectElement select = new SelectElement(dropdown);
             select.SelectByText(option);
-        }
-
-        internal static void WaitForElementToBeNotVisible(string locator)
-        {
-            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
-            wait.Until(d => !(d.FindElement(By.XPath(locator)).Displayed));
         }
     }
 }
