@@ -117,6 +117,7 @@
             string locatorButton = "//*[@class='product-remove']//*[@data-product_id='72171']";
             string locator = "//*[@class='woocommerce-cart-form']";
             Common.WaitForElementAttributeToNotContainValue(locator, "class", "processing");
+            System.Threading.Thread.Sleep(5000);
             Common.ClickElement(locatorButton);
         }
 
