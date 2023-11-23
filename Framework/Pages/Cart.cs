@@ -50,7 +50,6 @@
             string locator = "(//*[@class='single_add_to_cart_button button alt wp-element-button'])[2]";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
-            System.Threading.Thread.Sleep(3000);
         }
 
         public static void ClickButtonIKrepseliGiftVoucher()
@@ -60,13 +59,12 @@
             Common.ClickElement(locator);
         }
 
-        public static bool CartIconWithLabel2Exists()
-        {
-
-            string locator = "(//*[@id='masthead']//*[@data-icon-label='2'])[1]";
-            Common.WaitForElementToBeVisible(locator);
-            return Common.ElementExists(locator);
-        }
+        //public static bool CartIconWithLabel2Exists()
+        //{
+        //    string locator = "(//*[@id='masthead']//*[@data-icon-label='2'])[1]";
+        //    Common.WaitForElementToBeVisible(locator);
+        //    return Common.ElementExists(locator);
+        //}
 
         public static string GetCartMessageItemsAdded()
         {
