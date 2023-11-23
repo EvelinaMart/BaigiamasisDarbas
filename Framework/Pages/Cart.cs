@@ -50,6 +50,7 @@
             string locator = "(//*[@class='single_add_to_cart_button button alt wp-element-button'])[2]";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
+            System.Threading.Thread.Sleep(3000);
         }
 
         public static void ClickButtonIKrepseliGiftVoucher()
