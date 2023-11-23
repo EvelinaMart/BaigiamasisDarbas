@@ -21,10 +21,10 @@
 
         public static void ClickMenuItemTekstilesDekoravimas()
         {
-            //string locatorScrollIntoView = "//*[text()='EDUKACIJA – TEKSTILĖS DEKORAVIMAS']";
+            string locatorScrollIntoView = "//*[text()='EDUKACIJA – ŠILKO TAPYBA']";
             string locator = "//*[text()='EDUKACIJA – TEKSTILĖS DEKORAVIMAS']";
             string script = "arguments[0].scrollIntoView(true);";
-            Common.ExecuteJavascript(script, locator);
+            Common.ExecuteJavascript(script, locatorScrollIntoView);
             Common.ClickElement(locator);
         }
 
