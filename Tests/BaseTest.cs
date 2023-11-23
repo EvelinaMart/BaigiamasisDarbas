@@ -25,7 +25,7 @@ namespace Tests
                 TestContext.AddTestAttachment(filePath);
             }
 
-            //Driver.QuitDriver();
+            Driver.QuitDriver();
         }
     }
 }
