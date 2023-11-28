@@ -62,6 +62,7 @@
     <Compile Include="Pages\Home.cs" />
     <Compile Include="Pages\MenuNavigation.cs" />
     <Compile Include="Pages\Account.cs" />
+    <Compile Include="Pages\Products.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

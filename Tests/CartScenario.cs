@@ -12,13 +12,13 @@ namespace Tests
             string expectedCartMessageItemsAdded = "2 × “Aliejinė pastelė ARTix Arts 12 spalvų” - įdėti į krepšelį";
             string itemTitle = "Aliejinė pastelė ARTix Arts 12 spalvų";
 
-            Cart.ClickMenuItemElParduotuve();
+            Home.TopMenu.ClickElParduotuve();
             Cart.ClickMenuItemDaile();
             Cart.ClickAngleDownIconPastele();
             Cart.ClickMenuItemAliejinePastele();
             Cart.ClickCatalogueItemByTitle(itemTitle);
             Cart.IncreaseQuantityBy1();
-            Cart.ClickButtonIKrepseli();
+            Products.ClickButtonIKrepseli();
 
          // Assert.That(Cart.CartIconWithLabel2Exists());
             Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
@@ -30,13 +30,17 @@ namespace Tests
         {
             string expectedCartMessage = "Krepšelis dar tuščias.";
 
-            Cart.ClickMenuItemDovanuKuponai();
-            Cart.ChooseDropdownMenuItem50Eur();
-            Cart.ClickButtonIKrepseli();
-            Cart.ClickMenuItemDovanuKuponai();
-            Cart.ChooseDropdownMenuItem70Eur();
-            Cart.ClickButtonIKrepseli();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur50);
+            Products.ClickButtonIKrepseli();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur70);
+            Products.ClickButtonIKrepseli();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur40);
+            Products.ClickButtonIKrepseli();
             Cart.ClickCartIcon();
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
             Cart.ClickRemoveFromCartButtonForItemByIndex(1);
             Cart.ClickRemoveFromCartButtonForItemByIndex(1);
 

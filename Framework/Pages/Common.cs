@@ -1,14 +1,26 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Framework.Pages
 {
     public class Common
     {
-        internal static IWebElement GetElement(string locator)
+        private static IWebElement GetElement(string locator)
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
+        }
+
+        private static List<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
+        internal static int GetItemCount(string locator)
+        {
+            return GetElements(locator).Count;
         }
 
         internal static void ClickElement(string locator)
@@ -61,6 +73,7 @@ namespace Framework.Pages
         internal static void WaitForElementAttributeToNotContainValue(string locator, string attributeName, string attributeValue)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
             wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
         }
 

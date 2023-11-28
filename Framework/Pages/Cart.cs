@@ -2,12 +2,6 @@
 {
     public class Cart
     {
-        public static void ClickMenuItemElParduotuve()
-        {
-            string locator = "//*[@id='menu-item-42212']";
-            Common.ClickElement(locator);
-        }
-
         public static void ClickMenuItemDaile()
         {
             string locator = "//*[@class='cat-item cat-item-1860 cat-parent has-child']";
@@ -45,13 +39,6 @@
             Common.ClickElement(locator);
         }
 
-        public static void ClickButtonIKrepseli()
-        {
-            string locator = "//*[contains(@class,'form-normal')]//*[contains(@class,'single_add_to_cart_button')]";
-            Common.WaitForElementToBeVisible(locator);
-            Common.ClickElement(locator);
-        }
-
         //public static bool CartIconWithLabel2Exists()
         //{
         //    string locator = "(//*[@id='masthead']//*[@data-icon-label='2'])[1]";
@@ -66,30 +53,9 @@
             return Common.GetElementText(locator);
         }
 
-        public static void ClickMenuItemDovanuKuponai()
-        {
-            string locator = "//*[@id='menu-item-74300']/a";
-            Common.ClickElement(locator);
 
-            string locatorBody = "/html/body[@style='']";
-            Common.WaitForElementToBeVisible(locatorBody);
-        }
 
-        public static void ChooseDropdownMenuItem50Eur()
-        {
-            string locator = "(//*[@id='gift-card-amount'])[2]";
-            string option = "50.00€";
-            Common.WaitForElementToBeVisible(locator);
-            Common.SelectFromDropdownMenu(locator, option);
-        }
-
-        public static void ChooseDropdownMenuItem70Eur()
-        {
-            string locator = "(//*[@id='gift-card-amount'])[2]";
-            string option = "70.00€";
-            Common.WaitForElementToBeVisible(locator);
-            Common.SelectFromDropdownMenu(locator, option);
-        }
+        
 
         public static void ClickCartIcon()
         {
@@ -100,11 +66,20 @@
         public static void ClickRemoveFromCartButtonForItemByIndex(int itemIndex)
         {
             string locator = $"(//*[@class='product-remove'])[{itemIndex}]";
+            int itemInCartCount = Common.GetItemCount("//*[@class='product-remove']");
             Common.ClickElement(locator);
-            Common.WaitForElementAttributeToNotContainValue(
-                "//*[@class='woocommerce-cart-form']", 
-                "class", 
+
+            /* 
+             * Cannot execute this wait if there are only one item in the cart
+             * because after that item is removed, the form also does not exist anymore
+             */
+            if (itemInCartCount > 1)
+            {
+                Common.WaitForElementAttributeToNotContainValue(
+                "//*[@class='woocommerce-cart-form']",
+                "class",
                 "processing");
+            }
         }
         
         public static string GetCartMessageEmptyCart()
