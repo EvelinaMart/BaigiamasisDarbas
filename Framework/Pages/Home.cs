@@ -24,7 +24,7 @@
         {
             public static void Open()
             {
-                string locator = "(//*[@class='icon-menu'])[2]";
+                string locator = "//*[@id='masthead']//*[@class='icon-menu']";
                 Common.WaitForElementToBeVisible(locator);
                 Common.ClickElement(locator);
             }
