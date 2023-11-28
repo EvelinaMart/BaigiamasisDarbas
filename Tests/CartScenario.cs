@@ -13,15 +13,14 @@ namespace Tests
             string itemTitle = "Aliejinė pastelė ARTix Arts 12 spalvų";
 
             Home.TopMenu.ClickElParduotuve();
-            Cart.ClickMenuItemDaile();
-            Cart.ClickAngleDownIconPastele();
-            Cart.ClickMenuItemAliejinePastele();
-            Cart.ClickCatalogueItemByTitle(itemTitle);
-            Cart.IncreaseQuantityBy1();
+            Products.Categories.ExpandCategoryByTitle("Dailė");
+            Products.Categories.ExpandCategoryByTitle("Pastelė");
+            Products.Categories.ClickCategoryByTitle("Aliejinė pastelė");
+            Products.ClickItemByTitle(itemTitle);
+            Products.IncreaseQuantityBy1();
             Products.ClickButtonIKrepseli();
 
-         // Assert.That(Cart.CartIconWithLabel2Exists());
-            Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
+            Assert.That(Products.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
         }
 
         [Test]

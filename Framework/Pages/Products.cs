@@ -19,11 +19,47 @@
             }
         }
 
+        public class Categories
+        {
+            public static void ExpandCategoryByTitle(string title)
+            {
+                string locator = $"//*[contains(@class,'cat-item')]/a[text()='{title}']/../button";
+                Common.ClickElement(locator);
+            }
+
+            public static void ClickCategoryByTitle(string title)
+            {
+                string locator = $"//*[contains(@class,'cat-item')]/a[text()='{title}']";
+                Common.ClickElement(locator);
+            }
+        }
+
+        public static void ClickItemByTitle(string itemTitle)
+        {
+            string locator = $"//*[contains(@class,'product-title')]//*[text()='{itemTitle}']";
+            Common.WaitForElementToBeVisible(locator);
+            Common.ClickElement(locator);
+        }
+
+        public static void IncreaseQuantityBy1()
+        {
+            string locator = "(//*[@class='plus button is-form'])[2]";
+            Common.WaitForElementToBeVisible(locator);
+            Common.ClickElement(locator);
+        }
+
         public static void ClickButtonIKrepseli()
         {
             string locator = "//*[contains(@class,'form-normal')]//*[contains(@class,'single_add_to_cart_button')]";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
+        }
+
+        public static string GetCartMessageItemsAdded()
+        {
+            string locator = "//*[@id='wrapper']/div/div";
+            Common.WaitForElementToBeVisible(locator);
+            return Common.GetElementText(locator);
         }
     }
 }
