@@ -1,6 +1,6 @@
 ﻿namespace Framework.Pages
 {
-    public class Login
+    public class Account
     {
         public static void EnterEmailAddress(string email)
         {

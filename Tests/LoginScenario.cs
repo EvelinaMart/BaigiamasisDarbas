@@ -14,11 +14,11 @@ namespace Tests
             string expectedUsernameVisibleAfterLogin = "email37589 #8346";
 
             Home.ClickUserIcon();
-            Login.EnterEmailAddress(email);
-            Login.EnterPassword(validPassword);
-            Login.ClickButtonPrisijungti();
+            Account.EnterEmailAddress(email);
+            Account.EnterPassword(validPassword);
+            Account.ClickButtonPrisijungti();
 
-            Assert.That(Login.UsernameVisibleAfterLogin(), Is.EqualTo(expectedUsernameVisibleAfterLogin));
+            Assert.That(Account.UsernameVisibleAfterLogin(), Is.EqualTo(expectedUsernameVisibleAfterLogin));
         }
         [Test]
         public void LoginWithInvalidData()
@@ -28,11 +28,11 @@ namespace Tests
             string expectedLoginErrorMessage = "Klaida: Jūsų įvestas slaptažodis el. pašto adresui email37589@gmail.com yra neteisingas. Pamiršote slaptažodį?";
 
             Home.ClickUserIcon();
-            Login.EnterEmailAddress(email);
-            Login.EnterPassword(invalidPassword);
-            Login.ClickButtonPrisijungti();
+            Account.EnterEmailAddress(email);
+            Account.EnterPassword(invalidPassword);
+            Account.ClickButtonPrisijungti();
 
-            Assert.That(Login.GetLoginErrorMessage(), Is.EqualTo(expectedLoginErrorMessage));
+            Assert.That(Account.GetLoginErrorMessage(), Is.EqualTo(expectedLoginErrorMessage));
         }
     }
 }
