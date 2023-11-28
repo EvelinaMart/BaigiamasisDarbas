@@ -29,12 +29,9 @@
                 Common.ClickElement(locator);
             }
 
-            public static void ClickMenuItemEdukacijos()
+            public static void ClickMenuItemByTitle(string title)
             {
-                string locator = "//*[@id='menu-item-85667']";
-                string script = "arguments[0].scrollIntoView(true);";
-                Common.WaitForElementToBeVisible(locator);
-                Common.ExecuteJavascript(script, locator);
+                string locator = $"//*[@id='main-menu']//*[contains(@class,'menu-item')]/*[text()='{title}']";
                 Common.ClickElement(locator);
             }
 
