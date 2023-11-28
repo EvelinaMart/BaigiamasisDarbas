@@ -37,8 +37,8 @@ namespace Tests
             Cart.ChooseDropdownMenuItem70Eur();
             Cart.ClickButtonIKrepseli();
             Cart.ClickCartIcon();
-            Cart.ClickFirstButtonXDelete();
-            Cart.ClickLastButtonXDelete();
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
 
             Assert.That(Cart.GetCartMessageEmptyCart(), Is.EqualTo(expectedCartMessage));
         }

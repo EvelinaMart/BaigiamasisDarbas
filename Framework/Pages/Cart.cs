@@ -97,21 +97,16 @@
             Common.ClickElement(locator);
         }
 
-        public static void ClickFirstButtonXDelete()
+        public static void ClickRemoveFromCartButtonForItemByIndex(int itemIndex)
         {
-            string locator = "//*[@class='product-remove']//*[@data-product_id='72171']";
+            string locator = $"(//*[@class='product-remove'])[{itemIndex}]";
             Common.ClickElement(locator);
+            Common.WaitForElementAttributeToNotContainValue(
+                "//*[@class='woocommerce-cart-form']", 
+                "class", 
+                "processing");
         }
-
-        public static void ClickLastButtonXDelete()
-        {
-            string locatorButton = "//*[@class='product-remove']//*[@data-product_id='72171']";
-            string locator = "//*[@class='woocommerce-cart-form']";
-            Common.WaitForElementAttributeToNotContainValue(locator, "class", "processing");
-            System.Threading.Thread.Sleep(5000);
-            Common.ClickElement(locatorButton);
-        }
-
+        
         public static string GetCartMessageEmptyCart()
         {
             string locator = "//*[@class='cart-empty woocommerce-info']";
