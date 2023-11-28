@@ -27,6 +27,7 @@
                 string locator = "//*[@id='wide-nav']//*[@class='icon-menu']";
                 Common.WaitForElementToBeVisible(locator);
                 Common.ClickElement(locator);
+                Common.WaitForElementToBeVisible("//*[@class='mfp-hide']");
             }
 
             public static void ClickMenuItemByTitle(string title)
