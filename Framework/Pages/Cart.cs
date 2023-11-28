@@ -2,25 +2,6 @@
 {
     public class Cart
     {
-        
-
-
-
-
-
-        //public static bool CartIconWithLabel2Exists()
-        //{
-        //    string locator = "(//*[@id='masthead']//*[@data-icon-label='2'])[1]";
-        //    Common.WaitForElementToBeVisible(locator);
-        //    return Common.ElementExists(locator);
-        //}
-
-
-
-
-
-        
-
         public static void ClickCartIcon()
         {
             string locator = "//*[@id='masthead']//*[@class='icon-shopping-cart']";
