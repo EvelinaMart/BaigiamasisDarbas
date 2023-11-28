@@ -34,30 +34,6 @@
                 string locator = $"//*[@id='main-menu']//*[contains(@class,'menu-item')]/*[text()='{title}']";
                 Common.ClickElement(locator);
             }
-
-            public static void ClickMenuItemTekstilesDekoravimas()
-            {
-                string locatorScrollIntoView = "//*[text()='EDUKACIJA – ŠILKO TAPYBA']";
-                string locator = "//*[text()='EDUKACIJA – TEKSTILĖS DEKORAVIMAS']";
-                string script = "arguments[0].scrollIntoView(true);";
-                Common.ExecuteJavascript(script, locatorScrollIntoView);
-                Common.ClickElement(locator);
-            }
-
-            public static void ClickButtonArrowToTheRight()
-            {
-                string locator = "//*[@id='nav-below']//*[@class='icon-angle-right']";
-                string script = "arguments[0].scrollIntoView(true);";
-                Common.ExecuteJavascript(script, locator);
-                Common.ClickElement(locator);
-            }
-
-            public static string GetContactPhoneNumber()
-            {
-                string locator = "//*[@id=\"post-83331\"]/div/div/p[3]";
-                Common.WaitForElementToBeVisible(locator);
-                return Common.GetElementText(locator);
-            }
         }
 
         public static void Open()

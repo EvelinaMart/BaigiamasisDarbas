@@ -19,6 +19,28 @@
             }
         }
 
+        public class Edukacijos
+        {
+            public static void ClickItemByTitle(string title)
+            {
+                string locator = $"//*[contains(@class,'post-item')]//a[text()='{title}']";
+                Common.ClickElement(locator);
+            }
+
+            public static void ClickButtonNextItem()
+            {
+                string locator = "//*[@class='nav-next']/a]";
+                Common.ClickElement(locator);
+            }
+
+            public static string GetContactPhoneNumber()
+            {
+                string locator = "//*[@id=\"post-83331\"]/div/div/p[3]";
+                Common.WaitForElementToBeVisible(locator);
+                return Common.GetElementText(locator);
+            }
+        }
+
         public class Categories
         {
             public static void ExpandCategoryByTitle(string title)
