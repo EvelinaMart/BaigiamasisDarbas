@@ -33,6 +33,7 @@
             public static void ClickMenuItemByTitle(string title)
             {
                 string locator = $"//*[@id='main-menu']//*[contains(@class,'menu-item')]/*[text()='{title}']";
+                Common.WaitForElementToBeVisible(locator);
                 Common.ClickElement(locator);
             }
         }
