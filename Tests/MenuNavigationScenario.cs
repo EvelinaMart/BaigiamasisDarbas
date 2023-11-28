@@ -11,12 +11,12 @@ namespace Tests
         {
             string expectedContactPhoneNumberText = "Susisiekite +370 630 20570\r\nParašykite info@ornamentai.lt";
 
-            MenuNavigation.ClickButtonMenu();
-            MenuNavigation.ClickMenuItemEdukacijos();
-            MenuNavigation.ClickMenuItemTekstilesDekoravimas();
-            MenuNavigation.ClickButtonArrowToTheRight();
+            Home.MainMenu.Open();
+            Home.MainMenu.ClickMenuItemEdukacijos();
+            Home.MainMenu.ClickMenuItemTekstilesDekoravimas();
+            Home.MainMenu.ClickButtonArrowToTheRight();
 
-            Assert.That(MenuNavigation.GetContactPhoneNumber(), Is.EqualTo(expectedContactPhoneNumberText));
+            Assert.That(Home.MainMenu.GetContactPhoneNumber(), Is.EqualTo(expectedContactPhoneNumberText));
         }
     }
 }
