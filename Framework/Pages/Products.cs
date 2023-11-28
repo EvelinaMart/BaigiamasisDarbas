@@ -43,7 +43,7 @@
 
         public static void IncreaseQuantityBy1()
         {
-            string locator = "(//*[@class='plus button is-form'])[2]";
+            string locator = "//*[contains(@class,'form-normal')]//*[@class='plus button is-form']";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
