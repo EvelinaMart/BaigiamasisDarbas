@@ -40,34 +40,10 @@ namespace Framework.Pages
             return GetElement(locator).Text;
         }
 
-        internal static bool ElementExists(string locator)
-        {
-            try
-            {
-                IWebElement profileIcon = GetElement(locator);
-                return true;
-            }
-
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         internal static void WaitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.XPath(locator)));
-        }
-
-        internal static void WaitForElementToBeNotVisible(string locator)
-        {
-            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
-            wait.Until(d => !(d.FindElement(By.XPath(locator)).Displayed));
         }
 
         internal static void WaitForElementAttributeToNotContainValue(string locator, string attributeName, string attributeValue)
@@ -75,12 +51,6 @@ namespace Framework.Pages
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
             wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
-        }
-
-        internal static void ExecuteJavascript(string script, string locator)
-        {
-            IWebElement element = GetElement(locator);
-            ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
         }
 
         internal static void SelectFromDropdownMenu(string locator, string option)
