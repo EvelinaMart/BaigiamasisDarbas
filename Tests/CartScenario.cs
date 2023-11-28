@@ -10,12 +10,13 @@ namespace Tests
         public void AddingItemsFromCatalogueToCart()
         {
             string expectedCartMessageItemsAdded = "2 × “Aliejinė pastelė ARTix Arts 12 spalvų” - įdėti į krepšelį";
+            string itemTitle = "Aliejinė pastelė ARTix Arts 12 spalvų";
 
             Cart.ClickMenuItemElParduotuve();
             Cart.ClickMenuItemDaile();
             Cart.ClickAngleDownIconPastele();
             Cart.ClickMenuItemAliejinePastele();
-            Cart.ClickCatalogueItemAliejinePastele12Spalvu();
+            Cart.ClickCatalogueItemByTitle(itemTitle);
             Cart.IncreaseQuantityBy1();
             Cart.ClickButtonIKrepseli();
 

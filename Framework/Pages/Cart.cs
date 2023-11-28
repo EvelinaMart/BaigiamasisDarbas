@@ -31,9 +31,9 @@
             Common.ClickElement(locator);
         }
 
-        public static void ClickCatalogueItemAliejinePastele12Spalvu()
+        public static void ClickCatalogueItemByTitle(string itemTitle)
         {
-            string locator = "(//*[@class='woocommerce-LoopProduct-link woocommerce-loop-product__link'])[1]";
+            string locator = $"//*[contains(@class,'product-title')]//*[text()='{itemTitle}']";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
