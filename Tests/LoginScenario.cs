@@ -13,7 +13,7 @@ namespace Tests
             string validPassword = "testinePaskyra7";
             string expectedUsernameVisibleAfterLogin = "email37589 #8346";
 
-            Login.ClickUserIcon();
+            Home.ClickUserIcon();
             Login.EnterEmailAddress(email);
             Login.EnterPassword(validPassword);
             Login.ClickButtonPrisijungti();
@@ -27,7 +27,7 @@ namespace Tests
             string invalidPassword = "testinePaskyra";
             string expectedLoginErrorMessage = "Klaida: Jūsų įvestas slaptažodis el. pašto adresui email37589@gmail.com yra neteisingas. Pamiršote slaptažodį?";
 
-            Login.ClickUserIcon();
+            Home.ClickUserIcon();
             Login.EnterEmailAddress(email);
             Login.EnterPassword(invalidPassword);
             Login.ClickButtonPrisijungti();
