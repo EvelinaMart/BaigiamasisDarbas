@@ -25,6 +25,9 @@
                 "class",
                 "processing");
             }
+
+            // Add additional short wait for stability
+            System.Threading.Thread.Sleep(1000);
         }
         
         public static string GetCartMessageEmptyCart()
