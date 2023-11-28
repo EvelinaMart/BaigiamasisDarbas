@@ -32,10 +32,10 @@ namespace Tests
 
             Cart.ClickMenuItemDovanuKuponai();
             Cart.ChooseDropdownMenuItem50Eur();
-            Cart.ClickButtonIKrepseliGiftVoucher();
+            Cart.ClickButtonIKrepseli();
             Cart.ClickMenuItemDovanuKuponai();
             Cart.ChooseDropdownMenuItem70Eur();
-            Cart.ClickButtonIKrepseliGiftVoucher();
+            Cart.ClickButtonIKrepseli();
             Cart.ClickCartIcon();
             Cart.ClickFirstButtonXDelete();
             Cart.ClickLastButtonXDelete();

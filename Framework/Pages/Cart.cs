@@ -47,14 +47,7 @@
 
         public static void ClickButtonIKrepseli()
         {
-            string locator = "(//*[@class='single_add_to_cart_button button alt wp-element-button'])[2]";
-            Common.WaitForElementToBeVisible(locator);
-            Common.ClickElement(locator);
-        }
-
-        public static void ClickButtonIKrepseliGiftVoucher()
-        {
-            string locator = "//*[@class='single_add_to_cart_button button alt wp-element-button']";
+            string locator = "//*[contains(@class,'form-normal')]//*[contains(@class,'single_add_to_cart_button')]";
             Common.WaitForElementToBeVisible(locator);
             Common.ClickElement(locator);
         }
