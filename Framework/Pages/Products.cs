@@ -29,7 +29,7 @@
 
             public static void ClickButtonNextItem()
             {
-                string locator = "//*[@class='nav-next']/a]";
+                string locator = "//*[@class='nav-next']/a";
                 Common.ClickElement(locator);
             }
 
