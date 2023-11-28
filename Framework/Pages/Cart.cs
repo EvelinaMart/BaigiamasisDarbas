@@ -87,7 +87,6 @@
         {
             string locator = "(//*[@id='gift-card-amount'])[2]";
             string option = "70.00€";
-            //System.Threading.Thread.Sleep(5000);
             Common.WaitForElementToBeVisible(locator);
             Common.SelectFromDropdownMenu(locator, option);
         }
