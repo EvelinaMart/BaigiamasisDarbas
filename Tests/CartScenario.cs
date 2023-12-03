@@ -10,17 +10,17 @@ namespace Tests
         public void AddingItemsFromCatalogueToCart()
         {
             string expectedCartMessageItemsAdded = "2 × “Aliejinė pastelė ARTix Arts 12 spalvų” - įdėti į krepšelį";
+            string itemTitle = "Aliejinė pastelė ARTix Arts 12 spalvų";
 
-            Cart.ClickMenuItemElParduotuve();
-            Cart.ClickMenuItemDaile();
-            Cart.ClickAngleDownIconPastele();
-            Cart.ClickMenuItemAliejinePastele();
-            Cart.ClickCatalogueItemAliejinePastele12Spalvu();
-            Cart.IncreaseQuantityBy1();
-            Cart.ClickButtonIKrepseli();
+            Home.TopMenu.ClickElParduotuve();
+            Products.Categories.ExpandCategoryByTitle("Dailė");
+            Products.Categories.ExpandCategoryByTitle("Pastelė");
+            Products.Categories.ClickCategoryByTitle("Aliejinė pastelė");
+            Products.ClickItemByTitle(itemTitle);
+            Products.IncreaseQuantityBy1();
+            Products.ClickButtonIKrepseli();
 
-         // Assert.That(Cart.CartIconWithLabel2Exists());
-            Assert.That(Cart.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
+            Assert.That(Products.GetCartMessageItemsAdded(), Is.EqualTo(expectedCartMessageItemsAdded));
         }
 
         [Test]
@@ -29,15 +29,19 @@ namespace Tests
         {
             string expectedCartMessage = "Krepšelis dar tuščias.";
 
-            Cart.ClickMenuItemDovanuKuponai();
-            Cart.ChooseDropdownMenuItem50Eur();
-            Cart.ClickButtonIKrepseliGiftVoucher();
-            Cart.ClickMenuItemDovanuKuponai();
-            Cart.ChooseDropdownMenuItem70Eur();
-            Cart.ClickButtonIKrepseliGiftVoucher();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur50);
+            Products.ClickButtonIKrepseli();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur70);
+            Products.ClickButtonIKrepseli();
+            Home.TopMenu.ClickDovanuKuponai();
+            Products.DovanuKuponai.SelectCouponValue(Products.DovanuKuponai.Values.eur40);
+            Products.ClickButtonIKrepseli();
             Cart.ClickCartIcon();
-            Cart.ClickFirstButtonXDelete();
-            Cart.ClickLastButtonXDelete();
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
+            Cart.ClickRemoveFromCartButtonForItemByIndex(1);
 
             Assert.That(Cart.GetCartMessageEmptyCart(), Is.EqualTo(expectedCartMessage));
         }

@@ -1,14 +1,26 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Framework.Pages
 {
     public class Common
     {
-        internal static IWebElement GetElement(string locator)
+        private static IWebElement GetElement(string locator)
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
+        }
+
+        private static List<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
+        internal static int GetItemCount(string locator)
+        {
+            return GetElements(locator).Count;
         }
 
         internal static void ClickElement(string locator)
@@ -28,46 +40,17 @@ namespace Framework.Pages
             return GetElement(locator).Text;
         }
 
-        internal static bool ElementExists(string locator)
-        {
-            try
-            {
-                IWebElement profileIcon = GetElement(locator);
-                return true;
-            }
-
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         internal static void WaitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
             wait.Until(d => d.FindElement(By.XPath(locator)));
         }
 
-        internal static void WaitForElementToBeNotVisible(string locator)
-        {
-            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
-            wait.Until(d => !(d.FindElement(By.XPath(locator)).Displayed));
-        }
-
         internal static void WaitForElementAttributeToNotContainValue(string locator, string attributeName, string attributeValue)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
             wait.Until(d => !d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
-        }
-
-        internal static void ExecuteJavascript(string script, string locator)
-        {
-            IWebElement element = GetElement(locator);
-            ((IJavaScriptExecutor)Driver.GetDriver()).ExecuteScript(script, element);
         }
 
         internal static void SelectFromDropdownMenu(string locator, string option)

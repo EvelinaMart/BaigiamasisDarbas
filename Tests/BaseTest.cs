@@ -11,8 +11,8 @@ namespace Tests
         public void SetUp()
         {
             Driver.InitializeDriver();
-            Login.Open();
-            Login.CloseCookiesWindow();
+            Home.Open();
+            Home.CloseCookiesWindow();
         }
 
         [TearDown]
